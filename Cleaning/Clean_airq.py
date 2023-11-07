@@ -5,7 +5,7 @@ from dateutil.relativedelta import relativedelta
 from dateutil.parser import parse
 
 #Download the Air Quality csv as a AQdf
-AQdf = pd.read_csv('/Users/parisababaali/Documents/AirQualityModel/Data/Air_Quality.csv')
+AQdf = pd.read_csv('Data/Air_Quality.csv')
 
 #Checks for nulls
 print(AQdf.isnull().sum())
