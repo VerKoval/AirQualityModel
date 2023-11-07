@@ -75,3 +75,5 @@ to_be_dropped = ['Indicator ID', 'Message', 'Measure','Time Period']
 AQdf.drop(to_be_dropped, inplace = True, axis = 1)
 
 print(len(AQdf))
+
+AQdf.to_csv('Data/Cleaned_Air_Quality.csv', index=False)
