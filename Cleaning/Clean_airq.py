@@ -2,7 +2,6 @@
 import pandas as pd
 import numpy as np
 from dateutil.relativedelta import relativedelta
-from dateutil.parser import parse
 
 #Download the Air Quality csv as a AQdf
 AQdf = pd.read_csv('Data/Air_Quality.csv')
