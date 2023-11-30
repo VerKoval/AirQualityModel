@@ -1,4 +1,4 @@
-Unique ID,Indicator ID,Name,Measure Info,Geo Join ID,Time Period,Start_Date,Data Value
+Unique ID,Indicator ID,Name,Measure Info,UHF34 Zone,Time Period,Start_Date,Data Value
 172653,375,Nitrogen dioxide (NO2),ppb,203,Annual Average 2011,2010-12-01,25.3
 172585,375,Nitrogen dioxide (NO2),ppb,203,Annual Average 2009,2008-12-01,26.93
 336637,375,Nitrogen dioxide (NO2),ppb,204,Annual Average 2015,2015-01-01,19.09
