@@ -7,7 +7,7 @@ To launch the Dash application for visualizing the air quality data, run the `ru
 
 ## Sources
 - [**NYC Air Quality Dataset**](https://data.cityofnewyork.us/Environment/Air-Quality/c3uy-2p5r): This dataset provides comprehensive air quality surveillance data across different neighborhoods in New York City.
-- [**geoJSON Files**](https://github.com/nycehs/NYC_geography): A great resource for geographic boundaries of NYC.
+- [**NYC_geography**](https://github.com/nycehs/NYC_geography): A great resource for geographic boundaries of NYC, including the geoJSON files used for this project.
 
 ## Authors
 - Veronica Koval
