@@ -1,0 +1,260 @@
+<?xml version='1.0' encoding='utf-8'?>
+<gexf xmlns="http://www.gexf.net/1.2draft" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.gexf.net/1.2draft http://www.gexf.net/1.2draft/gexf.xsd" version="1.2">
+  <meta lastmodifieddate="2023-11-30">
+    <creator>NetworkX 3.2.1</creator>
+  </meta>
+  <graph defaultedgetype="undirected" mode="static" name="">
+    <attributes mode="static" class="node">
+      <attribute id="0" title="properties" type="string" />
+    </attributes>
+    <nodes>
+      <node id="0" label="0">
+        <attvalues>
+          <attvalue for="0" value="{'OBJECTID': 1, 'GEOCODE': 0, 'BOROUGH': 'Man', 'GEONAME': None, 'UHF': 0}" />
+        </attvalues>
+      </node>
+      <node id="101" label="101">
+        <attvalues>
+          <attvalue for="0" value="{'OBJECTID': 2, 'GEOCODE': 101, 'BOROUGH': 'Bronx', 'GEONAME': 'Kingsbridge - Riverdale', 'UHF': 101}" />
+        </attvalues>
+      </node>
+      <node id="102" label="102">
+        <attvalues>
+          <attvalue for="0" value="{'OBJECTID': 3, 'GEOCODE': 102, 'BOROUGH': 'Bronx', 'GEONAME': 'Northeast Bronx', 'UHF': 102}" />
+        </attvalues>
+      </node>
+      <node id="103" label="103">
+        <attvalues>
+          <attvalue for="0" value="{'OBJECTID': 4, 'GEOCODE': 103, 'BOROUGH': 'Bronx', 'GEONAME': 'Fordham - Bronx Park', 'UHF': 103}" />
+        </attvalues>
+      </node>
+      <node id="104" label="104">
+        <attvalues>
+          <attvalue for="0" value="{'OBJECTID': 5, 'GEOCODE': 104, 'BOROUGH': 'Bronx', 'GEONAME': 'Pelham - Throgs Neck', 'UHF': 104}" />
+        </attvalues>
+      </node>
+      <node id="201" label="201">
+        <attvalues>
+          <attvalue for="0" value="{'OBJECTID': 6, 'GEOCODE': 201, 'BOROUGH': 'Brooklyn', 'GEONAME': 'Greenpoint', 'UHF': 201}" />
+        </attvalues>
+      </node>
+      <node id="202" label="202">
+        <attvalues>
+          <attvalue for="0" value="{'OBJECTID': 7, 'GEOCODE': 202, 'BOROUGH': 'Brooklyn', 'GEONAME': 'Downtown - Heights - Slope', 'UHF': 202}" />
+        </attvalues>
+      </node>
+      <node id="203" label="203">
+        <attvalues>
+          <attvalue for="0" value="{'OBJECTID': 8, 'GEOCODE': 203, 'BOROUGH': 'Brooklyn', 'GEONAME': 'Bedford Stuyvesant - Crown Heights', 'UHF': 203}" />
+        </attvalues>
+      </node>
+      <node id="204" label="204">
+        <attvalues>
+          <attvalue for="0" value="{'OBJECTID': 9, 'GEOCODE': 204, 'BOROUGH': 'Brooklyn', 'GEONAME': 'East New York', 'UHF': 204}" />
+        </attvalues>
+      </node>
+      <node id="205" label="205">
+        <attvalues>
+          <attvalue for="0" value="{'OBJECTID': 10, 'GEOCODE': 205, 'BOROUGH': 'Brooklyn', 'GEONAME': 'Sunset Park', 'UHF': 205}" />
+        </attvalues>
+      </node>
+      <node id="206" label="206">
+        <attvalues>
+          <attvalue for="0" value="{'OBJECTID': 11, 'GEOCODE': 206, 'BOROUGH': 'Brooklyn', 'GEONAME': 'Borough Park', 'UHF': 206}" />
+        </attvalues>
+      </node>
+      <node id="207" label="207">
+        <attvalues>
+          <attvalue for="0" value="{'OBJECTID': 12, 'GEOCODE': 207, 'BOROUGH': 'Brooklyn', 'GEONAME': 'East Flatbush - Flatbush', 'UHF': 207}" />
+        </attvalues>
+      </node>
+      <node id="208" label="208">
+        <attvalues>
+          <attvalue for="0" value="{'OBJECTID': 13, 'GEOCODE': 208, 'BOROUGH': 'Brooklyn', 'GEONAME': 'Canarsie - Flatlands', 'UHF': 208}" />
+        </attvalues>
+      </node>
+      <node id="209" label="209">
+        <attvalues>
+          <attvalue for="0" value="{'OBJECTID': 14, 'GEOCODE': 209, 'BOROUGH': 'Brooklyn', 'GEONAME': 'Bensonhurst - Bay Ridge', 'UHF': 209}" />
+        </attvalues>
+      </node>
+      <node id="210" label="210">
+        <attvalues>
+          <attvalue for="0" value="{'OBJECTID': 15, 'GEOCODE': 210, 'BOROUGH': 'Brooklyn', 'GEONAME': 'Coney Island - Sheepshead Bay', 'UHF': 210}" />
+        </attvalues>
+      </node>
+      <node id="211" label="211">
+        <attvalues>
+          <attvalue for="0" value="{'OBJECTID': 16, 'GEOCODE': 211, 'BOROUGH': 'Brooklyn', 'GEONAME': 'Williamsburg - Bushwick', 'UHF': 211}" />
+        </attvalues>
+      </node>
+      <node id="301" label="301">
+        <attvalues>
+          <attvalue for="0" value="{'OBJECTID': 17, 'GEOCODE': 301, 'BOROUGH': 'Man', 'GEONAME': 'Washington Heights - Inwood', 'UHF': 301}" />
+        </attvalues>
+      </node>
+      <node id="302" label="302">
+        <attvalues>
+          <attvalue for="0" value="{'OBJECTID': 18, 'GEOCODE': 302, 'BOROUGH': 'Man', 'GEONAME': 'Central Harlem - Morningside Heights', 'UHF': 302}" />
+        </attvalues>
+      </node>
+      <node id="303" label="303">
+        <attvalues>
+          <attvalue for="0" value="{'OBJECTID': 19, 'GEOCODE': 303, 'BOROUGH': 'Man', 'GEONAME': 'East Harlem', 'UHF': 303}" />
+        </attvalues>
+      </node>
+      <node id="304" label="304">
+        <attvalues>
+          <attvalue for="0" value="{'OBJECTID': 20, 'GEOCODE': 304, 'BOROUGH': 'Man', 'GEONAME': 'Upper West Side', 'UHF': 304}" />
+        </attvalues>
+      </node>
+      <node id="401" label="401">
+        <attvalues>
+          <attvalue for="0" value="{'OBJECTID': 21, 'GEOCODE': 401, 'BOROUGH': 'Queens', 'GEONAME': 'Long Island City - Astoria', 'UHF': 401}" />
+        </attvalues>
+      </node>
+      <node id="402" label="402">
+        <attvalues>
+          <attvalue for="0" value="{'OBJECTID': 22, 'GEOCODE': 402, 'BOROUGH': 'Queens', 'GEONAME': 'West Queens', 'UHF': 402}" />
+        </attvalues>
+      </node>
+      <node id="403" label="403">
+        <attvalues>
+          <attvalue for="0" value="{'OBJECTID': 23, 'GEOCODE': 403, 'BOROUGH': 'Queens', 'GEONAME': 'Flushing - Clearview', 'UHF': 403}" />
+        </attvalues>
+      </node>
+      <node id="405" label="405">
+        <attvalues>
+          <attvalue for="0" value="{'OBJECTID': 24, 'GEOCODE': 405, 'BOROUGH': 'Queens', 'GEONAME': 'Ridgewood - Forest Hills', 'UHF': 405}" />
+        </attvalues>
+      </node>
+      <node id="407" label="407">
+        <attvalues>
+          <attvalue for="0" value="{'OBJECTID': 25, 'GEOCODE': 407, 'BOROUGH': 'Queens', 'GEONAME': 'Southwest Queens', 'UHF': 407}" />
+        </attvalues>
+      </node>
+      <node id="408" label="408">
+        <attvalues>
+          <attvalue for="0" value="{'OBJECTID': 26, 'GEOCODE': 408, 'BOROUGH': 'Queens', 'GEONAME': 'Jamaica', 'UHF': 408}" />
+        </attvalues>
+      </node>
+      <node id="409" label="409">
+        <attvalues>
+          <attvalue for="0" value="{'OBJECTID': 27, 'GEOCODE': 409, 'BOROUGH': 'Queens', 'GEONAME': 'Southeast Queens', 'UHF': 409}" />
+        </attvalues>
+      </node>
+      <node id="410" label="410">
+        <attvalues>
+          <attvalue for="0" value="{'OBJECTID': 28, 'GEOCODE': 410, 'BOROUGH': 'Queens', 'GEONAME': 'Rockaway', 'UHF': 410}" />
+        </attvalues>
+      </node>
+      <node id="305307" label="305307">
+        <attvalues>
+          <attvalue for="0" value="{'OBJECTID': 29, 'GEOCODE': 305307, 'BOROUGH': 'Man', 'GEONAME': 'Upper East Side - Gramercy', 'UHF': 305307}" />
+        </attvalues>
+      </node>
+      <node id="306308" label="306308">
+        <attvalues>
+          <attvalue for="0" value="{'OBJECTID': 30, 'GEOCODE': 306308, 'BOROUGH': 'Man', 'GEONAME': 'Chelsea - Village', 'UHF': 306308}" />
+        </attvalues>
+      </node>
+      <node id="309310" label="309310">
+        <attvalues>
+          <attvalue for="0" value="{'OBJECTID': 31, 'GEOCODE': 309310, 'BOROUGH': 'Man', 'GEONAME': 'Union Square, Lower Manhattan', 'UHF': 309310}" />
+        </attvalues>
+      </node>
+      <node id="404406" label="404406">
+        <attvalues>
+          <attvalue for="0" value="{'OBJECTID': 32, 'GEOCODE': 404406, 'BOROUGH': 'Queens', 'GEONAME': 'Bayside - Meadows', 'UHF': 404406}" />
+        </attvalues>
+      </node>
+      <node id="501502" label="501502">
+        <attvalues>
+          <attvalue for="0" value="{'OBJECTID': 33, 'GEOCODE': 501502, 'BOROUGH': 'SI', 'GEONAME': 'Northern SI', 'UHF': 501502}" />
+        </attvalues>
+      </node>
+      <node id="503504" label="503504">
+        <attvalues>
+          <attvalue for="0" value="{'OBJECTID': 34, 'GEOCODE': 503504, 'BOROUGH': 'SI', 'GEONAME': 'Southern SI', 'UHF': 503504}" />
+        </attvalues>
+      </node>
+      <node id="105106107" label="105106107">
+        <attvalues>
+          <attvalue for="0" value="{'OBJECTID': 35, 'GEOCODE': 105106107, 'BOROUGH': 'Bronx', 'GEONAME': 'South Bronx', 'UHF': 105106107}" />
+        </attvalues>
+      </node>
+    </nodes>
+    <edges>
+      <edge source="0" target="302" id="0" />
+      <edge source="0" target="303" id="1" />
+      <edge source="0" target="304" id="2" />
+      <edge source="0" target="401" id="3" />
+      <edge source="0" target="402" id="4" />
+      <edge source="0" target="407" id="5" />
+      <edge source="0" target="408" id="6" />
+      <edge source="0" target="409" id="7" />
+      <edge source="0" target="305307" id="8" />
+      <edge source="0" target="306308" id="9" />
+      <edge source="101" target="102" id="10" />
+      <edge source="101" target="103" id="11" />
+      <edge source="101" target="301" id="12" />
+      <edge source="101" target="410" id="13" />
+      <edge source="101" target="105106107" id="14" />
+      <edge source="102" target="103" id="15" />
+      <edge source="102" target="104" id="16" />
+      <edge source="103" target="104" id="17" />
+      <edge source="103" target="105106107" id="18" />
+      <edge source="104" target="105106107" id="19" />
+      <edge source="201" target="202" id="20" />
+      <edge source="201" target="211" id="21" />
+      <edge source="201" target="401" id="22" />
+      <edge source="201" target="402" id="23" />
+      <edge source="202" target="203" id="24" />
+      <edge source="202" target="205" id="25" />
+      <edge source="202" target="206" id="26" />
+      <edge source="202" target="207" id="27" />
+      <edge source="202" target="211" id="28" />
+      <edge source="202" target="401" id="29" />
+      <edge source="203" target="204" id="30" />
+      <edge source="203" target="207" id="31" />
+      <edge source="203" target="208" id="32" />
+      <edge source="204" target="208" id="33" />
+      <edge source="204" target="211" id="34" />
+      <edge source="204" target="405" id="35" />
+      <edge source="204" target="407" id="36" />
+      <edge source="205" target="206" id="37" />
+      <edge source="205" target="209" id="38" />
+      <edge source="205" target="407" id="39" />
+      <edge source="206" target="209" id="40" />
+      <edge source="206" target="210" id="41" />
+      <edge source="207" target="208" id="42" />
+      <edge source="208" target="210" id="43" />
+      <edge source="208" target="407" id="44" />
+      <edge source="209" target="210" id="45" />
+      <edge source="301" target="302" id="46" />
+      <edge source="301" target="405" id="47" />
+      <edge source="301" target="105106107" id="48" />
+      <edge source="302" target="303" id="49" />
+      <edge source="302" target="304" id="50" />
+      <edge source="303" target="305307" id="51" />
+      <edge source="303" target="105106107" id="52" />
+      <edge source="304" target="306308" id="53" />
+      <edge source="401" target="402" id="54" />
+      <edge source="402" target="403" id="55" />
+      <edge source="402" target="405" id="56" />
+      <edge source="403" target="405" id="57" />
+      <edge source="403" target="404406" id="58" />
+      <edge source="405" target="407" id="59" />
+      <edge source="405" target="404406" id="60" />
+      <edge source="407" target="408" id="61" />
+      <edge source="407" target="404406" id="62" />
+      <edge source="408" target="404406" id="63" />
+      <edge source="409" target="404406" id="64" />
+      <edge source="410" target="404406" id="65" />
+      <edge source="305307" target="306308" id="66" />
+      <edge source="305307" target="309310" id="67" />
+      <edge source="306308" target="309310" id="68" />
+      <edge source="501502" target="503504" id="69" />
+    </edges>
+  </graph>
+</gexf>
