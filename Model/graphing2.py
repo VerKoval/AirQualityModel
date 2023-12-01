@@ -11,6 +11,10 @@ import torch.nn as nn
 from pathlib import Path
 
 
+num_nodes = 35  # Update this based on your actual data
+num_features = 3  # NO2, O3, PM2.5
+batch_size = 32  # This can be set based on how you want to batch your data
+
 # Load the merged air quality and geographic data
 script_dir = Path(__file__).parent.absolute()
 merged_csv_path = script_dir/'../Data/merged_air_quality_geographic.csv'
