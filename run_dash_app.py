@@ -1,34 +1,30 @@
-from dash import dash, dcc, callback, html, Output, Input
+from dash import dash, dcc, html, Output, Input
 import dash_bootstrap_components as dbc
 import pandas as pd
 import geopandas as gpd
 import plotly.express as px
-import json
+from pathlib import Path
 
-df = pd.read_csv('Data/Cleaned_Air_Quality.csv')
-uhf34 = gpd.read_file('GeoJSON/UHF34.geo.json')
-uhf42 = gpd.read_file('GeoJSON/UHF42.geo.json')
-cd_geo = gpd.read_file('GeoJSON/CD.geo.json')
-# with open('Data/UHF34_zone_names.json', 'r') as file:
-#     uhf_zone_names = json.load(file)
-    
+
+# Load files
+script_dir = Path(__file__).parent.absolute()
+df = pd.read_csv(script_dir/'Data/Cleaned_Air_Quality.csv')
+uhf34 = gpd.read_file(script_dir/'GeoJSON/UHF34.geo.json')
+uhf42 = gpd.read_file(script_dir/'GeoJSON/UHF42.geo.json')
+cd_geo = gpd.read_file(script_dir/'GeoJSON/CD.geo.json')
+
+# Start Dash module with the LUX theme
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.LUX])
 
 # Concat the value with its unit
 df['Value'] = df['Data Value'].astype(str) + ' ' + df['Measure Info']
-
-# indicator_id_names = {
-#     365: 'Fine particles (PM 2.5)',
-#     375: 'Nitrogen dioxide (NO2)',
-#     386: 'Ozone (O3)'
-# }
 
 # Dash layout
 app.layout = dbc.Container([
     html.H1("NYC Air Quality Mapping", className="text-center mb-4"),
     dbc.Row([
         dbc.Col([
-            html.Label("Choose a GeoJSON Map:", className="mb-2"),
+            html.Label("Pick a Neighborhood Scheme:", className="mb-2"),
             dcc.Dropdown(
                 id='geojson-dropdown',
                 options=[
@@ -36,7 +32,7 @@ app.layout = dbc.Container([
                     {'label': 'UHF42', 'value': 'UHF42'},
                     {'label': 'Community District', 'value': 'CD'}
                 ],
-                value='uhf34'
+                value='UHF34' # Default value
             )
         ], width=12),
         dbc.Col([
@@ -53,7 +49,7 @@ app.layout = dbc.Container([
                 placeholder="Select a parameter"
             )
         ], width=12),
-        dbc.Col(dcc.Graph(id='choropleth-map', style={'height': '80vh'}), width=12)
+        dbc.Col(dcc.Graph(id='choropleth-map', style={'display': 'none'}), width=12)
     ])
 ], fluid=True)
 
@@ -81,13 +77,14 @@ def set_names_options(selected_geojson, selected_time_period):
     return [{'label': name, 'value': name} for name in names]
 
 @app.callback(
-    Output('choropleth-map', 'figure'),
+    [Output('choropleth-map', 'figure'),
+     Output('choropleth-map', 'style')],
     [Input('geojson-dropdown', 'value'),
      Input('time-period-dropdown', 'value'),
      Input('name-dropdown', 'value')]
 )
 def update_map(selected_geojson, selected_time_period, selected_name):
-    if selected_geojson is not None and selected_time_period is not None and selected_name is not None:
+    if selected_geojson and selected_time_period and selected_name:
         filtered_df = df[
             (df['Geo Type Name'] == selected_geojson) &
             (df['Time Period'] == selected_time_period) &
@@ -108,16 +105,17 @@ def update_map(selected_geojson, selected_time_period, selected_name):
             locations='Geo Join ID',
             color='Data Value',
             featureidkey='properties.GEOCODE',
-            hover_data={'Data Value': False, 'Geo Place Name': True, 'Name': True, 'Value': True}
+            hover_data={'Geo Join ID': False, 'Data Value': False, 'Geo Place Name': True, 'Name': True, 'Value': True}
         )
+        # Center and resize the map to be in NYC
         fig.update_geos(
             center={'lat': 40.6828, 'lon': -73.9060},
-            projection_scale=300,
+            projection_scale=375,
             visible=False
         )
-        return fig
+        return fig, {'display': 'block', 'height': '75vh'}
     else:
-        return {}  # Return an empty figure or a default figure if selections are not complete
+        return {}, {'display': 'none'} # Return an empty figure if selections are not complete
 
 if __name__ == '__main__':
     app.run_server(debug=True)
