@@ -1,9 +1,12 @@
 # NYC Air Quality Data Analysis and Predictions
 ## Description
-This project aims to analyze and predict air quality in New York City to aid residents in gauging the safety of their environment. Leveraging data from NYC Open Data and other external datasets, our goal is to model, track, and visualize the air quality with a focus on the impact of various particles and location-based trends.
+This project focuses on analyzing and predicting air quality in New York City. Our goal is to provide residents with valuable insights into the environmental quality of their neighborhoods, highlighting the presence of various air pollutants. Using data sourced from NYC Open Data and other external datasets, we have developed a sophisticated model. This model not only tracks and visualizes historical air quality trends but also employs predictive analytics to forecast future air quality scenarios based on observed data patterns.
+
+## How to Run
+To launch the Dash application for visualizing the air quality data, run the `run_dash_app.py` file.
 
 ## Data Sources
-- [**NYC Air Quality Dataset**](https://data.cityofnewyork.us/Environment/Air-Quality/c3uy-2p5r): Contains air quality surveillance results from different neighborhoods in NYC.
+- [**NYC Air Quality Dataset**](https://data.cityofnewyork.us/Environment/Air-Quality/c3uy-2p5r): This dataset provides comprehensive air quality surveillance data across different neighborhoods in New York City.
 
 ## Authors
 - Veronica Koval
@@ -11,20 +14,11 @@ This project aims to analyze and predict air quality in New York City to aid res
 - Panagiotis (Peter) Kokolis
 
 # To-Do
-## Data Cleaning
-- Normalize the locations to be consistent with zip codes only (resolve multiple zip codes for areas)
-- Standardize measurement units for particle concentrations (e.g., parts per million)
-- Filter out data columns that are not relevant to air quality
 ### Research
 - Identify the particles that have a significant impact on air quality
 - Determine acceptable levels for these particle concentrations
+- Find external datasets to supplement our model
 
 ## Dash App
-- Implement a geojson-based map for spatial data representation
-- Improve the aesthetics of the app
-- Improve app interactivity
-  - Enable users to select specific dates/times for predictions.
-  - Introduce filters for different particle types and areas.
-
-## Predictions
-- Spatiotemporal prediction model
+- Enhance the visual appeal of the app, focusing on user interface design and ease of use.
+- Integrate predictive modeling features, enabling users to view potential future air quality scenarios based on historical data trends.
