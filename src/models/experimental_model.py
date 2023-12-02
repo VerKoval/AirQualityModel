@@ -1,15 +1,18 @@
+import pandas as pd
 import torch
 import torch.nn as nn
-from torch_geometric.nn import ChebConv
 from torch.nn import Transformer
-import pandas as pd
+from torch_geometric.nn import ChebConv
 from torch_geometric.data import Data
 import torch.nn.functional as F
 from torch.optim import Adam
 from sklearn.preprocessing import StandardScaler
+from pathlib import Path
+
 
 # Load air quality data and convert dates
-air_quality_df = pd.read_csv('/Users/pana/Downloads/fully_normalized_air_quality_data_with_date.csv')
+script_dir = Path(__file__).parent.absolute()
+air_quality_df = pd.read_csv(script_dir/'../../data/processed/normalized_air_quality.csv')
 air_quality_df['Start_Date'] = pd.to_datetime(air_quality_df['Start_Date'])
 
 # Normalizing the feature columns
@@ -17,6 +20,8 @@ scaler = StandardScaler()
 feature_columns = ['Nitrogen dioxide (NO2)', 'Ozone (O3)', 'Fine particles (PM 2.5)']
 target_column = ['Fine particles (PM 2.5)']
 #air_quality_df[feature_columns] = scaler.fit_transform(air_quality_df[feature_columns])
+features_data = air_quality_df[feature_columns].values
+
 
 # Function to prepare data for model input
 def prepare_data(data):
@@ -33,10 +38,10 @@ valid_data = air_quality_df[(air_quality_df['Start_Date'] >= train_end) & (air_q
 test_data = air_quality_df[air_quality_df['Start_Date'] >= valid_end]
 
 # Convert features to PyTorch tensor
-features_tensor = torch.tensor(feature_columns, dtype=torch.float)
+features_tensor = torch.tensor(features_data, dtype=torch.float)
 
 # Load adjacency matrix, skipping the first row (header) and the first column (index)
-adjacency_df = pd.read_csv('/Users/pana/Downloads/adjacency_matrix_from_gexf.csv', index_col=0)
+adjacency_df = pd.read_csv(script_dir/'../../data/processed/adjacency_matrix_from_gexf.csv', index_col=0)
 
 # Ensure that all values are numeric. If the matrix is correct, all values should be 0 or 1 (integers)
 adjacency_df = adjacency_df.apply(pd.to_numeric)
@@ -166,7 +171,7 @@ for epoch in range(30):
             break
 
 # Save the trained model
-torch.save(model.state_dict(), 'model.pth')
+torch.save(model.state_dict(), script_dir/'../../models/experimental_model.pth')
 
 # Test the model on the test set
 model.eval()

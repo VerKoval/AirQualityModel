@@ -3,11 +3,11 @@ import numpy as np
 import networkx as nx
 import torch
 from torch_geometric.data import Data
-from sklearn.preprocessing import StandardScaler
 from torch_geometric.nn import GCNConv
-import torch.nn.functional as F
 from torch.optim import Adam
 import torch.nn as nn
+import torch.nn.functional as F
+from sklearn.preprocessing import StandardScaler
 from pathlib import Path
 
 
@@ -17,7 +17,7 @@ batch_size = 32  # This can be set based on how you want to batch your data
 
 # Load the merged air quality and geographic data
 script_dir = Path(__file__).parent.absolute()
-merged_csv_path = script_dir/'../Data/merged_air_quality_geographic.csv'
+merged_csv_path = script_dir/'../../data/processed/merged_air_quality_geographic.csv'
 merged_data = pd.read_csv(merged_csv_path)
 merged_data['Start_Date'] = pd.to_datetime(merged_data['Start_Date'])
 
@@ -27,7 +27,7 @@ merged_data['Month'] = merged_data['Start_Date'].dt.month
 merged_data['Day'] = merged_data['Start_Date'].dt.day
 
 # Load the graph
-graph_path = script_dir/'../Data/zone_graph_from_topojson.gexf'
+graph_path = script_dir/'../../data/processed/zone_graph_from_topojson2.gexf'
 G = nx.read_gexf(graph_path)
 
 # Convert GEOCODE node labels to integer indices
@@ -133,7 +133,7 @@ average_performance = np.mean(metrics)
 print("Average Performance:", average_performance)
 
 # Save the trained model
-torch.save(model.state_dict(), '../Data/stgnn_model.pth')
+torch.save(model.state_dict(), script_dir/'../../models/stgnn_model.pth')
 
 # Prediction function incorporating time features
 def predict_air_quality(model, zone, time_features, G, node_mapping):

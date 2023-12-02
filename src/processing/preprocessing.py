@@ -1,23 +1,22 @@
 import pandas as pd
 import networkx as nx
-import torch
 import json
+from pathlib import Path
 
 
 # Load the CSV data
-csv_file_path = '/Users/pana/projects/github/AirQualityModel/AirQualityModel/Data/Ranges_To_Dates_Cleaned_Air_Quality.csv'  # Replace with your file path
+script_dir = Path(__file__).parent.absolute()
+csv_file_path = script_dir/'../../data/processed/ranges_to_dates_cleaned_air_quality.csv'
 csv_data = pd.read_csv(csv_file_path)
 
 # Convert 'Start_Date' to DateTime and sort the data
-# Load the CSV data
-csv_data = pd.read_csv(csv_file_path)
 csv_data['Start_Date'] = pd.to_datetime(csv_data['Start_Date'])
 csv_data['Year'] = csv_data['Start_Date'].dt.year
 csv_data['Month'] = csv_data['Start_Date'].dt.month
 csv_data['Day'] = csv_data['Start_Date'].dt.day
 
 # Load the graph
-graph_file_path = '/Users/pana/projects/github/AirQualityModel/AirQualityModel/Data/zone_graph_from_topojson2.gexf'
+graph_file_path = script_dir/'../../data/processed/zone_graph_from_topojson2.gexf'
 G = nx.read_gexf(graph_file_path)
 
 # Initialize time series data for each node in the graph
@@ -46,5 +45,5 @@ for node in G.nodes():
 
 
 # Save the updated graph to a new file
-updated_graph_file_path = '/Users/pana/projects/github/AirQualityModel/AirQualityModel/Data/updated_zone_graph.gexf'
+updated_graph_file_path = script_dir/'../../data/processed/updated_zone_graph.gexf'
 nx.write_gexf(G, updated_graph_file_path)

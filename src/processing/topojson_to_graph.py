@@ -3,6 +3,7 @@ import networkx as nx
 import itertools
 import geopandas as gpd
 import matplotlib.pyplot as plt
+from pathlib import Path
 
 
 def load_topojson(topojson_path):
@@ -45,8 +46,9 @@ def save_graph(graph, file_path):
     nx.write_gexf(graph, file_path)
 
 def main():
-    topojson_path = '/Users/pana/Downloads/UHF34.topo.json'
-    #output_graph_path = '/Users/pana/projects/github/AirQualityModel/AirQualityModel/Data/zone_graph_from_topojson2.gexf'
+    script_dir = Path(__file__).parent.absolute()
+    topojson_path = script_dir/'../../data/raw/UHF34.topo.json'
+    output_graph_path = script_dir/'../../data/processed/zone_graph_from_topojson.gexf'
 
     topojson_data = load_topojson(topojson_path)
     G = create_graph_from_topojson(topojson_data)
@@ -56,8 +58,11 @@ def main():
 
 if __name__ == "__main__":
     main()
-    G = create_graph_from_topojson(load_topojson('/Users/pana/Downloads/UHF34.topo.json'))
-    gdf = gpd.read_file('/Users/pana/Downloads/UHF34.topo.json')
+    script_dir = Path(__file__).parent.absolute()
+    topojson_path = script_dir/'../../data/raw/UHF34.topo.json'
+    
+    G = create_graph_from_topojson(load_topojson(topojson_path))
+    gdf = gpd.read_file(topojson_path)
     fig, ax = plt.subplots(figsize=(12, 12))
     gdf.plot(ax=ax, color='white', edgecolor='black')
 

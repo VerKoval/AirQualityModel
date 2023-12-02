@@ -8,10 +8,10 @@ from pathlib import Path
 
 # Load files
 script_dir = Path(__file__).parent.absolute()
-df = pd.read_csv(script_dir/'Data/Cleaned_Air_Quality.csv')
-uhf34 = gpd.read_file(script_dir/'GeoJSON/UHF34.geo.json')
-uhf42 = gpd.read_file(script_dir/'GeoJSON/UHF42.geo.json')
-cd_geo = gpd.read_file(script_dir/'GeoJSON/CD.geo.json')
+df = pd.read_csv(script_dir/'data/processed/cleaned_air_quality.csv')
+uhf34 = gpd.read_file(script_dir/'data/raw/UHF34.geo.json')
+uhf42 = gpd.read_file(script_dir/'data/raw/UHF42.geo.json')
+cd_geo = gpd.read_file(script_dir/'data/raw/CD.geo.json')
 
 # Start Dash module with the LUX theme
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.LUX])

@@ -4,7 +4,7 @@ from pathlib import Path
 
 # Make sure to load the dates as dates instead of strings when reading .csv
 script_dir = Path(__file__).parent.absolute()
-AQdf = pd.read_csv(script_dir/'Data/Air_Quality.csv', parse_dates=['Start_Date'])
+AQdf = pd.read_csv(script_dir/'../../data/raw/Air_Quality.csv', parse_dates=['Start_Date'])
 
 # Check what the most common Geo Type is
 print(f"Number of values for column: {AQdf['Geo Type Name'].value_counts()}\n")
@@ -26,4 +26,4 @@ print(f'Dataframe size after: {len(AQdf)}\n')
 AQdf.drop(['Message', 'Measure'], inplace=True, axis=1)
 
 # Save this as a dataframe
-AQdf.to_csv(script_dir/'Data/TTCleaned_Air_Quality.csv', index=False)
+AQdf.to_csv(script_dir/'../../data/processed/Cleaned_Air_Quality.csv', index=False)

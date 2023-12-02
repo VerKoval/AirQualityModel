@@ -4,7 +4,7 @@ from pathlib import Path
 
 # Make sure to load the dates as dates instead of strings when reading .csv
 script_dir = Path(__file__).parent.absolute()
-AQdf = pd.read_csv(script_dir/'Data/Air_Quality.csv', parse_dates=['Start_Date'])
+AQdf = pd.read_csv(script_dir/'../../data/raw/Air_Quality.csv', parse_dates=['Start_Date'])
 
 # Check for nulls
 print(f'Number of nulls: \n{AQdf.isnull().sum()}\n')
@@ -57,7 +57,7 @@ AQdf = AQdf[AQdf['Measure'] == 'Mean']
 AQdf.drop(['Message', 'Measure', 'Geo Place Name', 'Geo Type Name'], inplace=True, axis=1)
 
 # Save this as a dataframe
-AQdf.to_csv(script_dir/'Data/Cleaned_Air_Quality.csv', index=False)
+AQdf.to_csv(script_dir/'../../data/processed/UHF34_Aggregate_Cleaned_Air_Quality.csv', index=False)
 
 # We want data for specific dates, and since the data is mean in ranges
 # the following code generates more data for each range, that will copy
@@ -99,4 +99,4 @@ newAQ.drop(['Time Period'], inplace=True, axis=1)
 print(f'New dataframe size: {len(newAQ)}')
 
 # Save the disaggregated dataframe
-newAQ.to_csv(script_dir/'Data/Ranges_To_Dates_Cleaned_Air_Quality.csv', index=False)
+newAQ.to_csv(script_dir/'../../data/processed/Ranges_To_Dates_Cleaned_Air_Quality.csv', index=False)
