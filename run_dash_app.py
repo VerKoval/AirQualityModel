@@ -1,3 +1,4 @@
+from datetime import datetime
 from dash import dash, dcc, html, Output, Input
 import dash_bootstrap_components as dbc
 import pandas as pd
@@ -8,104 +9,74 @@ from pathlib import Path
 
 # Load files
 script_dir = Path(__file__).parent.absolute()
-df = pd.read_csv(script_dir/'data/processed/cleaned_air_quality.csv')
+df = pd.read_csv(script_dir/'data/processed/reorganized_air_quality.csv')
 uhf34 = gpd.read_file(script_dir/'data/raw/UHF34.geo.json')
-uhf42 = gpd.read_file(script_dir/'data/raw/UHF42.geo.json')
-cd_geo = gpd.read_file(script_dir/'data/raw/CD.geo.json')
 
-# Start Dash module with the LUX theme
-app = dash.Dash(__name__, external_stylesheets=[dbc.themes.LUX])
+# Start Dash module with the VAPOR theme
+app = dash.Dash(__name__, external_stylesheets=[dbc.themes.VAPOR])
 
-# Concat the value with its unit
-df['Value'] = df['Data Value'].astype(str) + ' ' + df['Measure Info']
-
-# Dash layout
+#App format
 app.layout = dbc.Container([
+    #Type of air selector
     html.H1("NYC Air Quality Mapping", className="text-center mb-4"),
     dbc.Row([
         dbc.Col([
-            html.Label("Pick a Neighborhood Scheme:", className="mb-2"),
-            dcc.Dropdown(
-                id='geojson-dropdown',
-                options=[
-                    {'label': 'UHF34', 'value': 'UHF34'},
-                    {'label': 'UHF42', 'value': 'UHF42'},
-                    {'label': 'Community District', 'value': 'CD'}
-                ],
-                value='UHF34' # Default value
-            )
-        ], width=12),
-        dbc.Col([
-            html.Label("Choose a Time Period:", className="mb-2"),
-            dcc.Dropdown(
-                id='time-period-dropdown',
-                placeholder="Select a time period"
-            )
-        ], width=12),
-        dbc.Col([
-            html.Label("Choose a Parameter:", className="mb-2"),
+            html.Label("Select Air Type", className="mb-2"),
             dcc.Dropdown(
                 id='name-dropdown',
-                placeholder="Select a parameter"
+                options=[
+                    {'label': 'NO2', 'value': 'Nitrogen dioxide (NO2)'},
+                    {'label': 'Fine Particles', 'value': 'Fine particles (PM 2.5)'},
+                    {'label': 'Ozone', 'value': 'Ozone (O3)'}]
             )
-        ], width=12),
-        dbc.Col(dcc.Graph(id='choropleth-map', style={'display': 'none'}), width=12)
+        ], width=6),
+        #Date Selector
+        dbc.Col([
+            html.Label("Select Date", className="mb-2"),
+            dcc.DatePickerSingle(
+                id='given_date',
+                date='2008-12-01'  #Default
+            )
+        ], width=6), 
+    ]),
+    #"Enter" button to activate map
+    dbc.Row([
+        dbc.Col(html.Button('Enter', id='submit-button', n_clicks=0), width=12)
+    ]),
+    #map
+    dbc.Row([
+        dbc.Col(dcc.Graph(id='choropleth-map', style={'display': 'none'}), width=18)
     ])
-], fluid=True)
-
-@app.callback(
-    Output('time-period-dropdown', 'options'),
-    Input('geojson-dropdown', 'value')
-)
-def set_time_period_options(selected_geojson):
-    # Filter the dataframe based on selected geography type
-    filtered_df = df[df['Geo Type Name'] == selected_geojson]
-    # Get the unique values in 'Time Period' for the filtered dataframe
-    time_periods = filtered_df['Time Period'].unique()
-    return [{'label': tp, 'value': tp} for tp in time_periods]
-
-@app.callback(
-    Output('name-dropdown', 'options'),
-    [Input('geojson-dropdown', 'value'), 
-     Input('time-period-dropdown', 'value')]
-)
-def set_names_options(selected_geojson, selected_time_period):
-    # Filter the dataframe based on both selected geography type and time period
-    filtered_df = df[(df['Geo Type Name'] == selected_geojson) & (df['Time Period'] == selected_time_period)]
-    # Get the unique values in 'Name' for the filtered dataframe
-    names = filtered_df['Name'].unique()
-    return [{'label': name, 'value': name} for name in names]
+], fluid=True, style={'display': 'flex', 'flex-direction': 'column', 'align-items': 'center'})
 
 @app.callback(
     [Output('choropleth-map', 'figure'),
      Output('choropleth-map', 'style')],
-    [Input('geojson-dropdown', 'value'),
-     Input('time-period-dropdown', 'value'),
+    [Input('submit-button', 'n_clicks')],
+    [Input('given_date', 'date'),
      Input('name-dropdown', 'value')]
 )
-def update_map(selected_geojson, selected_time_period, selected_name):
-    if selected_geojson and selected_time_period and selected_name:
-        filtered_df = df[
-            (df['Geo Type Name'] == selected_geojson) &
-            (df['Time Period'] == selected_time_period) &
-            (df['Name'] == selected_name)
-        ]
+def update_map(n_clicks, selected_time_period, selected_name):
+    #checks if button activated
+    if n_clicks is not None and n_clicks > 0 and selected_time_period and selected_name:
+        filtered_df = df[df['Start_Date'] == selected_time_period]
 
-        # Load the correct GeoJSON data
-        geojson = {
-            'UHF34': uhf34,
-            'UHF42': uhf42,
-            'CD': cd_geo
-        }[selected_geojson]
+        column_to_use = None #the column with selected type of air
+        if selected_name == 'Fine particles (PM 2.5)':
+            column_to_use = 'Fine particles (PM 2.5)'
+        elif selected_name == 'Nitrogen dioxide (NO2)':
+            column_to_use = 'Nitrogen dioxide (NO2)'
+        elif selected_name == 'Ozone (O3)':
+            column_to_use = 'Ozone (O3)'
 
         # Create the choropleth map
         fig = px.choropleth(
             filtered_df,
-            geojson=geojson,
-            locations='Geo Join ID',
-            color='Data Value',
+            geojson=uhf34,
+            locations='UHF34 Zone',
+            color=column_to_use,
             featureidkey='properties.GEOCODE',
-            hover_data={'Geo Join ID': False, 'Data Value': False, 'Geo Place Name': True, 'Name': True, 'Value': True}
+            hover_data={'UHF34 Zone': True}
         )
         # Center and resize the map to be in NYC
         fig.update_geos(
@@ -115,7 +86,7 @@ def update_map(selected_geojson, selected_time_period, selected_name):
         )
         return fig, {'display': 'block', 'height': '75vh'}
     else:
-        return {}, {'display': 'none'} # Return an empty figure if selections are not complete
-
+        return {}, {'display': 'none'}
+    
 if __name__ == '__main__':
     app.run_server(debug=True)
