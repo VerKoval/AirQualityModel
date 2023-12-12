@@ -75,7 +75,8 @@ def update_map(n_clicks, selected_time_period, selected_name):
             locations='UHF34 Zone',
             color=column_to_use,
             featureidkey='properties.GEOCODE',
-            hover_data={'UHF34 Zone': True}
+            hover_data={'UHF34 Zone': True},
+            color_continuous_scale='mint'
         )
         # Center and resize the map to be in NYC
         fig.update_geos(
@@ -83,7 +84,13 @@ def update_map(n_clicks, selected_time_period, selected_name):
             projection_scale=375,
             visible=False
         )
-        return fig, {'display': 'block', 'height': '75vh'}
+        fig.update_layout(
+            height=600,  # Use the entire vertical height of the screen
+            width = 1200,
+            margin=dict(l=0, r=0, t=0, b=0),  # Adjust margins to fill the whole screen
+        )
+
+        return fig, {'display': 'block', 'height': '84vh'}
     else:
         return {}, {'display': 'none'}
     
