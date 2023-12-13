@@ -12,7 +12,7 @@ Authors: Veronica Koval, Mohammad Kahaf Bhuiyan, Panagiotis (Peter) Kokolis
 
 ## Showcase
 The following two images show the view of the app for the same data parameter. The first is for historical AQI and the second is predicted AQI.
-![Image 1](images/AQI.png) ![Image 2](images/predicted_aqi.png)
+![Image 1](images/AQI.png) ![Image 2](images/predicted_AQI.png)
 
 ## Goal
 Air quality in New York City has become an increasingly pressing issue among residents in recent years. Given the city’s population density and its subsequent consequences, such as increased traffic, domestic fuel burning, etc., the health risks associated with smog are no longer negligible. According to NYC.gov, New York’s official government website, air pollutants in New York City “...cause about 2,400 deaths per year in NYC, and thousands more emergency department visits and hospitalizations for asthma, heart and lung problems.” In 2023, NYC’s AQI, air quality index used to measure harmful particles in the air, reached an all time high at 460, the worst in the world, due to nearby Canadian wildfires. The topic of air quality is now among the list of major concerns to New Yorkers. Our goal is to model and track the air quality in order to help those more susceptible to health issues gauge the safety of their environment.
