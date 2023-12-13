@@ -38,7 +38,12 @@ To launch the Dash application for visualizing the air quality data, run the `ru
 - Select a date from under 'Select Date'. You can either type it in in the given format, or press date on the calendar pop up.
   - Dates can range anywhere from 2009-06-08 to 2021-12-31. For 'Predicted AQI' the date 2022-01-01 is also available.
 - Press Enter.
+- Hover mouse over zone for specific information.
 - To change the parameters, repeat the process
+
+## Sample Comparison
+The following two images show the view of the app for the same data parameter. The first is for historical AQI and the second is predicted AQI.
+![Image 1](Images/screen1.png) ![Image 2](Images/screen2.png)
 
 
 
