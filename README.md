@@ -23,6 +23,7 @@ This project focuses on analyzing and predicting air quality in New York City. O
 [![OpenCV][OpenCV]][OpenCV-url]
 [![Pytorch][Pytorch]][Pytorch-url]
 [![Dash][Dash]][Dash-url]
+[![Informer2020](Informer2020)](Informer-url)
 
 ## How to Run
 To launch the Dash application for visualizing the air quality data, run the `run_dash_app.py` file.
@@ -65,3 +66,5 @@ To launch the Dash application for visualizing the air quality data, run the `ru
 [Pytorch-url]: https://pytorch.org/
 [Dash]: https://img.shields.io/badge/Dash-Plotly-white?style=for-the-badge&logo=plotly&logoColor=red
 [Dash-url]: https://dash.plotly.com/
+[Informer2020]: https://img.shields.io/badge/GitHub-Informer2020-black?style=for-the-badge&logo=github
+[Informer2020-url]: https://github.com/zhouhaoyi/Informer2020
