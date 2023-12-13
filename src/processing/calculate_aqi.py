@@ -57,7 +57,8 @@ df['NO2 AQI'] = df['Nitrogen dioxide (NO2)'].apply(lambda x: calculate_aqi_from_
 df['Ozone AQI'] = df['Ozone (O3)'].apply(lambda x: calculate_aqi_from_concentration(x, ozone_breakpoints))
 
 # The overall AQI for the date would be the maximum AQI value across all pollutants
-AQdf['AQI'] = df[['PM2.5 AQI', 'NO2 AQI', 'Ozone AQI']].max(axis=1).round().astype(int)
+AQdf['AQI'] = df[['PM2.5 AQI', 'NO2 AQI', 'Ozone AQI']].mean(axis=1).round().astype(int)
+
 
 # Save the disaggregated dataframe
 AQdf.to_csv(script_dir/'../../data/processed/reorganized_air_quality_with_aqi.csv', index=False)
