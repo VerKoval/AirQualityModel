@@ -10,6 +10,10 @@
 # NYC Air Quality Data Analysis and Predictions
 Authors: Veronica Koval, Mohammad Kahaf Bhuiyan, Panagiotis (Peter) Kokolis
 
+## Showcase
+The following two images show the view of the app for the same data parameter. The first is for historical AQI and the second is predicted AQI.
+![Image 1](images/AQI.png) ![Image 2](images/predicted_aqi.png)
+
 ## Goal
 Air quality in New York City has become an increasingly pressing issue among residents in recent years. Given the city’s population density and its subsequent consequences, such as increased traffic, domestic fuel burning, etc., the health risks associated with smog are no longer negligible. According to NYC.gov, New York’s official government website, air pollutants in New York City “...cause about 2,400 deaths per year in NYC, and thousands more emergency department visits and hospitalizations for asthma, heart and lung problems.” In 2023, NYC’s AQI, air quality index used to measure harmful particles in the air, reached an all time high at 460, the worst in the world, due to nearby Canadian wildfires. The topic of air quality is now among the list of major concerns to New Yorkers. Our goal is to model and track the air quality in order to help those more susceptible to health issues gauge the safety of their environment.
 
@@ -23,17 +27,10 @@ This project focuses on analyzing and predicting air quality in New York City. O
 [![OpenCV][OpenCV]][OpenCV-url]
 [![Pytorch][Pytorch]][Pytorch-url]
 [![Dash][Dash]][Dash-url]
-[![Informer2020][Informer2020]][Informer2020-url]
 [![Scikit-Learn][Scikit-Learn]][Scikit-Learn-url]
 
-## How to Run
-To launch the Dash application for visualizing the air quality data, run the `run_dash_app.py` file.
-
-## Sources
-- [**NYC Air Quality Dataset**](https://data.cityofnewyork.us/Environment/Air-Quality/c3uy-2p5r): This dataset provides comprehensive air quality surveillance data across different neighborhoods in New York City.
-- [**NYC_geography**](https://github.com/nycehs/NYC_geography): A great resource for geographic boundaries of NYC, including the geoJSON files used for this project.
-
-## Dash App
+## How to Use
+- To launch the Dash application for visualizing the air quality data, run the `run_dash_app.py` file.
 - Select one of the available options from dropdown under "Select Air Type". For the predictive model, press 'Predicted AQI'.
 - Select a date from under 'Select Date'. You can either type it in in the given format, or press date on the calendar pop up.
   - Dates can range anywhere from 2009-06-08 to 2021-12-31. For 'Predicted AQI' the date 2022-01-01 is also available.
@@ -41,9 +38,17 @@ To launch the Dash application for visualizing the air quality data, run the `ru
 - Hover mouse over zone for specific information.
 - To change the parameters, repeat the process
 
-## Sample Comparison
-The following two images show the view of the app for the same data parameter. The first is for historical AQI and the second is predicted AQI.
-![Image 1](Images/screen1.png) ![Image 2](Images/screen2.png)
+## Models
+- Several experimental models were used throughout the development of this project, which can be found in the `models` folder.
+- The code for these models can be found in the `src/models` folder and include:
+  - LSTM (Long Short Term Memory), a recurrent neural network model
+  - STGNN (Spatio-temporal Graph Neural Net)
+  - GCNInformer, a hybrid between GCN (Graph Convulutional Network) and Informer (A variation on Transformer models)
+
+## Sources
+- [**NYC Air Quality Dataset**](https://data.cityofnewyork.us/Environment/Air-Quality/c3uy-2p5r): This dataset provides comprehensive air quality surveillance data across different neighborhoods in New York City.
+- [**NYC_geography**](https://github.com/nycehs/NYC_geography): A great resource for geographic boundaries of NYC, including the geoJSON files used for this project.
+- [**Informer**](https://github.com/zhouhaoyi/Informer2020): A new machine learning model based on Transformer models for Long Sequence Time-Series Forecasting, winner of AAAI'21 Best Paper.
 
 
 
@@ -75,7 +80,5 @@ The following two images show the view of the app for the same data parameter. T
 [Pytorch-url]: https://pytorch.org/
 [Dash]: https://img.shields.io/badge/Dash-Plotly-white?style=for-the-badge&logo=plotly&logoColor=red
 [Dash-url]: https://dash.plotly.com/
-[Informer2020]: https://img.shields.io/badge/GitHub-Informer2020-black?style=for-the-badge&logo=github
-[Informer2020-url]: https://github.com/zhouhaoyi/Informer2020/
 [Scikit-Learn]: https://img.shields.io/badge/scikit--learn-black?style=for-the-badge&logo=scikit-learn
 [Scikit-Learn-url]: https://scikit-learn.org/
