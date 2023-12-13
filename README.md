@@ -67,4 +67,4 @@ To launch the Dash application for visualizing the air quality data, run the `ru
 [Dash]: https://img.shields.io/badge/Dash-Plotly-white?style=for-the-badge&logo=plotly&logoColor=red
 [Dash-url]: https://dash.plotly.com/
 [Informer2020]: https://img.shields.io/badge/GitHub-Informer2020-black?style=for-the-badge&logo=github
-[Informer2020-url]: https://github.com/zhouhaoyi/Informer2020
+[Informer2020-url]: https://github.com/zhouhaoyi/Informer2020/
