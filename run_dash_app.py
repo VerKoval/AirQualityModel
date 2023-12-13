@@ -11,6 +11,21 @@ from pathlib import Path
 script_dir = Path(__file__).parent.absolute()
 df = pd.read_csv(script_dir/'data/final/predicted_aqi.csv')
 uhf34 = gpd.read_file(script_dir/'data/raw/UHF34.geo.json')
+zone_data = {
+    'UHF34 Zone': [101, 102, 103, 104, 105106107, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211,
+                   301, 302, 303, 304, 305307, 306308, 309310, 401, 402, 403, 404406, 405, 407, 408, 409, 410, 501502, 503504],
+    'Zone Name': ['Kingsbridge - Riverdale', 'Northeast Bronx', 'Fordham - Bronx Park', 'Pelham - Throgs Neck', 
+                  'South Bronx', 'Greenpoint', 'Downtown - Heights - Slope', 'Bedford Stuyvesant - Crown Heights',
+                  'East New York', 'Sunset Park', 'Borough Park', 'East Flatbush - Flatbush', 'Canarsie - Flatlands',
+                  'Bensonhurst - Bay Ridge', 'Coney Island - Sheepshead Bay', 'Williamsburg - Bushwick', 
+                  'Washington Heights - Inwood', 'Central Harlem - Morningside Heights', 'East Harlem', 
+                  'Upper West Side', 'Upper East Side - Gramercy', 'Chelsea - Village', 'Union Square, Lower Manhattan',
+                  'Long Island City - Astoria', 'West Queens', 'Flushing - Clearview', 'Bayside - Meadows', 
+                  'Ridgewood - Forest Hills', 'Southwest Queen', 'Jamaica', 'Southeast Queens', 'Rockaway Queens', 
+                  'Northern Staten Island', 'Southern Staten Island']
+}
+zone_df = pd.DataFrame(zone_data)
+df = pd.merge(df, zone_df, on='UHF34 Zone', how='left')
 
 # Start Dash module with the MINTY theme, add templates for figures
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.MINTY])
@@ -72,7 +87,7 @@ def update_map(n_clicks, selected_time_period, selected_name):
             locations='UHF34 Zone',
             color=selected_name,
             featureidkey='properties.GEOCODE',
-            hover_data={'UHF34 Zone': True},
+            hover_data={'UHF34 Zone': False, 'Zone Name': True},
             color_continuous_scale='mint',
             template='minty_dark'
         )
