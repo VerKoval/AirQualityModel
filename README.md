@@ -1,3 +1,11 @@
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![MIT License][license-shield]][license-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
+[![GitHub][github-shield]][github-url]
+
 # NYC Air Quality Data Analysis and Predictions
 ## Description
 This project focuses on analyzing and predicting air quality in New York City. Our goal is to provide residents with valuable insights into the environmental quality of their neighborhoods, highlighting the presence of various air pollutants. Using data sourced from NYC Open Data and other external datasets, we have developed a sophisticated model. This model not only tracks and visualizes historical air quality trends but also employs predictive analytics to forecast future air quality scenarios based on observed data patterns.
@@ -23,3 +31,8 @@ To launch the Dash application for visualizing the air quality data, run the `ru
 ## Dash App
 - Enhance the visual appeal of the app, focusing on user interface design and ease of use.
 - Integrate predictive modeling features, enabling users to view potential future air quality scenarios based on historical data trends.
+
+
+
+[contributors-shield]: https://img.shields.io/github/contributors/VerKoval/AirQualityModel.svg?style=for-the-badge
+[contributors-url]: https://github.com/VerKoval/realesrgan/graphs/contributors
