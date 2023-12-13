@@ -23,7 +23,8 @@ This project focuses on analyzing and predicting air quality in New York City. O
 [![OpenCV][OpenCV]][OpenCV-url]
 [![Pytorch][Pytorch]][Pytorch-url]
 [![Dash][Dash]][Dash-url]
-[![Informer2020](Informer2020)](Informer-url)
+[![Informer2020][Informer2020]][Informer2020-url]
+[![Scikit-Learn][Scikit-Learn]][Scikit-Learn-url]
 
 ## How to Run
 To launch the Dash application for visualizing the air quality data, run the `run_dash_app.py` file.
@@ -33,8 +34,11 @@ To launch the Dash application for visualizing the air quality data, run the `ru
 - [**NYC_geography**](https://github.com/nycehs/NYC_geography): A great resource for geographic boundaries of NYC, including the geoJSON files used for this project.
 
 ## Dash App
-- Enhance the visual appeal of the app, focusing on user interface design and ease of use.
-- Integrate predictive modeling features, enabling users to view potential future air quality scenarios based on historical data trends.
+- Select one of the available options from dropdown under "Select Air Type". For the predictive model, press 'Predicted AQI'.
+- Select a date from under 'Select Date'. You can either type it in in the given format, or press date on the calendar pop up.
+  - Dates can range anywhere from 2009-06-08 to 2021-12-31. For 'Predicted AQI' the date 2022-01-01 is also available.
+- Press Enter.
+- To change the parameters, repeat the process
 
 
 
@@ -68,3 +72,5 @@ To launch the Dash application for visualizing the air quality data, run the `ru
 [Dash-url]: https://dash.plotly.com/
 [Informer2020]: https://img.shields.io/badge/GitHub-Informer2020-black?style=for-the-badge&logo=github
 [Informer2020-url]: https://github.com/zhouhaoyi/Informer2020/
+[Scikit-Learn]: https://img.shields.io/badge/scikit--learn-black?style=for-the-badge&logo=scikit-learn
+[Scikit-Learn-url]: https://scikit-learn.org/
