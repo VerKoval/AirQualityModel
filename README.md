@@ -3,8 +3,9 @@
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-[![GitHub][github-shield]][github-url]
+[![LinkedIn1][linkedin-shield]][linkedin-url1]
+[![LinkedIn2][linkedin-shield]][linkedin-url2]
+[![LinkedIn3][linkedin-shield]][linkedin-url3]
 
 # NYC Air Quality Data Analysis and Predictions
 ## Description
@@ -35,4 +36,16 @@ To launch the Dash application for visualizing the air quality data, run the `ru
 
 
 [contributors-shield]: https://img.shields.io/github/contributors/VerKoval/AirQualityModel.svg?style=for-the-badge
-[contributors-url]: https://github.com/VerKoval/realesrgan/graphs/contributors
+[contributors-url]: https://github.com/VerKoval/AirQualityModel/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/VerKoval/AirQualityModel.svg?style=for-the-badge
+[forks-url]: https://github.com/VerKoval/AirQualityModel/network/members
+[stars-shield]: https://img.shields.io/github/stars/VerKoval/AirQualityModel.svg?style=for-the-badge
+[stars-url]: https://github.com/VerKoval/AirQualityModel/stargazers
+[issues-shield]: https://img.shields.io/github/issues/VerKoval/AirQualityModel.svg?style=for-the-badge
+[issues-url]: https://github.com/VerKoval/AirQualityModel/realesrgan/issues
+[license-shield]: https://img.shields.io/github/license/VerKoval/AirQualityModel.svg?style=for-the-badge
+[license-url]: https://github.com/VerKoval/AirQualityModel/blob/main/LICENSE
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=0077B5
+[linkedin-url1]: https://www.linkedin.com/in/panagiotis-kokolis
+[linkedin-url2]: https://www.linkedin.com/in/mkbhuiyan96/
+[linkedin-url3]: https://www.linkedin.com/in/veronicakoval
