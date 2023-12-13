@@ -8,11 +8,11 @@ from pathlib import Path
 
 # Load files
 script_dir = Path(__file__).parent.absolute()
-df = pd.read_csv(script_dir/'data/processed/reorganized_air_quality.csv')
+df = pd.read_csv(script_dir/'data/processed/reorganized_air_quality_with_aqi.csv')
 uhf34 = gpd.read_file(script_dir/'data/raw/UHF34.geo.json')
 
 # Start Dash module with the VAPOR theme
-app = dash.Dash(__name__, external_stylesheets=[dbc.themes.VAPOR])
+app = dash.Dash(__name__, external_stylesheets=[dbc.themes.CYBORG])
 
 #App format
 app.layout = dbc.Container([
@@ -26,7 +26,8 @@ app.layout = dbc.Container([
                 options=[
                     {'label': 'NO2', 'value': 'Nitrogen dioxide (NO2)'},
                     {'label': 'Fine Particles', 'value': 'Fine particles (PM 2.5)'},
-                    {'label': 'Ozone', 'value': 'Ozone (O3)'}]
+                    {'label': 'Ozone', 'value': 'Ozone (O3)'},
+                    {'label': 'AQI', 'value': 'AQI'}]
             )
         ], width=6),
         #Date Selector
@@ -34,14 +35,14 @@ app.layout = dbc.Container([
             html.Label("Select Date", className="mb-2"),
             dcc.DatePickerSingle(
                 id='given_date',
-                date='2008-12-01'  #Default
+                date='2008-12-01',  #Default
             )
         ], width=6), 
     ]),
     #"Enter" button to activate map
     dbc.Row([
-        dbc.Col(html.Button('Enter', id='submit-button', n_clicks=0), width=12)
-    ]),
+        dbc.Col(html.Button('Enter', id='submit-button', n_clicks=0, className="btn-lg"), width=12)
+    ], className="mb-2"),
     #map
     dbc.Row([
         dbc.Col(dcc.Graph(id='choropleth-map', style={'display': 'none'}), width=18)
@@ -58,6 +59,7 @@ app.layout = dbc.Container([
 def update_map(n_clicks, selected_time_period, selected_name):
     #checks if button activated
     if n_clicks is not None and n_clicks > 0 and selected_time_period and selected_name:
+        #if selected_time_period <= '2021-12-31':
         filtered_df = df[df['Start_Date'] == selected_time_period]
 
         column_to_use = None #the column with selected type of air
@@ -67,6 +69,8 @@ def update_map(n_clicks, selected_time_period, selected_name):
             column_to_use = 'Nitrogen dioxide (NO2)'
         elif selected_name == 'Ozone (O3)':
             column_to_use = 'Ozone (O3)'
+        elif selected_name == 'AQI':
+            column_to_use = 'AQI'
 
         # Create the choropleth map
         fig = px.choropleth(
