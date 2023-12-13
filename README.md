@@ -8,8 +8,21 @@
 [![LinkedIn3][linkedin-shield]][linkedin-url3]
 
 # NYC Air Quality Data Analysis and Predictions
+Authors: Veronica Koval, Mohammad Kahaf Bhuiyan, Panagiotis (Peter) Kokolis
+
+## Goal
+Air quality in New York City has become an increasingly pressing issue among residents in recent years. Given the city’s population density and its subsequent consequences, such as increased traffic, domestic fuel burning, etc., the health risks associated with smog are no longer negligible. According to NYC.gov, New York’s official government website, air pollutants in New York City “...cause about 2,400 deaths per year in NYC, and thousands more emergency department visits and hospitalizations for asthma, heart and lung problems.” In 2023, NYC’s AQI, air quality index used to measure harmful particles in the air, reached an all time high at 460, the worst in the world, due to nearby Canadian wildfires. The topic of air quality is now among the list of major concerns to New Yorkers. Our goal is to model and track the air quality in order to help those more susceptible to health issues gauge the safety of their environment.
+
 ## Description
 This project focuses on analyzing and predicting air quality in New York City. Our goal is to provide residents with valuable insights into the environmental quality of their neighborhoods, highlighting the presence of various air pollutants. Using data sourced from NYC Open Data and other external datasets, we have developed a sophisticated model. This model not only tracks and visualizes historical air quality trends but also employs predictive analytics to forecast future air quality scenarios based on observed data patterns.
+
+## Built With
+[![Python][Python]][Python-url]
+[![Numpy][Numpy]][Numpy-url]
+[![Pandas][Pandas]][Pandas-url]
+[![OpenCV][OpenCV]][OpenCV-url]
+[![Pytorch][Pytorch]][Pytorch-url]
+[![Dash][Dash]][Dash-url]
 
 ## How to Run
 To launch the Dash application for visualizing the air quality data, run the `run_dash_app.py` file.
@@ -17,17 +30,6 @@ To launch the Dash application for visualizing the air quality data, run the `ru
 ## Sources
 - [**NYC Air Quality Dataset**](https://data.cityofnewyork.us/Environment/Air-Quality/c3uy-2p5r): This dataset provides comprehensive air quality surveillance data across different neighborhoods in New York City.
 - [**NYC_geography**](https://github.com/nycehs/NYC_geography): A great resource for geographic boundaries of NYC, including the geoJSON files used for this project.
-
-## Authors
-- Veronica Koval
-- Mohammad Kahaf Bhuiyan
-- Panagiotis (Peter) Kokolis
-
-# To-Do
-### Research
-- Identify the particles that have a significant impact on air quality
-- Determine acceptable levels for these particle concentrations
-- Find external datasets to supplement our model
 
 ## Dash App
 - Enhance the visual appeal of the app, focusing on user interface design and ease of use.
@@ -49,3 +51,17 @@ To launch the Dash application for visualizing the air quality data, run the `ru
 [linkedin-url1]: https://www.linkedin.com/in/panagiotis-kokolis
 [linkedin-url2]: https://www.linkedin.com/in/mkbhuiyan96/
 [linkedin-url3]: https://www.linkedin.com/in/veronicakoval
+[Python]: https://img.shields.io/badge/python-FFDE57?style=for-the-badge&logo=python&logoColor=4584B6
+[Python-url]: https://www.python.org/
+[Numpy]: https://img.shields.io/badge/numpy-%23013243.svg?style=for-the-badge&logo=numpy&logoColor=white
+[Numpy-url]: https://numpy.org/
+[Pandas]: https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white
+[Pandas-url]: https://pandas.pydata.org/
+[Python]: https://img.shields.io/badge/python-FFDE57?style=for-the-badge&logo=python&logoColor=4584B6
+[Python-url]: https://www.python.org/
+[OpenCV]: https://img.shields.io/badge/opencv-000000?style=for-the-badge&logo=opencv&logoColor=00ff00
+[OpenCV-url]: https://opencv.org/
+[Pytorch]: https://img.shields.io/badge/pytorch-%23EE4C2C.svg?style=for-the-badge&logo=pytorch&logoColor=white
+[Pytorch-url]: https://pytorch.org/
+[Dash]: https://img.shields.io/badge/Dash-Plotly-white?style=for-the-badge&logo=plotly&logoColor=red
+[Dash-url]: https://dash.plotly.com/
