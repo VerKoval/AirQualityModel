@@ -50,6 +50,11 @@ This project focuses on analyzing and predicting air quality in New York City. O
 - [**NYC_geography**](https://github.com/nycehs/NYC_geography): A great resource for geographic boundaries of NYC, including the geoJSON files used for this project.
 - [**Informer**](https://github.com/zhouhaoyi/Informer2020): A new machine learning model based on Transformer models for Long Sequence Time-Series Forecasting, winner of AAAI'21 Best Paper.
 
+## Contributors
+- Panagiotis (Peter) Kokolis: [**LinkedIn**](https://www.linkedin.com/in/panagiotis-kokolis), [**GitHub**](https://github.com/PanagiotisKokolis)
+- Mohammad Kahaf Bhuiyan: [**LinkedIn**](https://www.linkedin.com/in/mkbhuiyan96/), [**GitHub**](https://github.com/mkbhuiyan96)
+- Veronica Koval: [**LinkedIn**](https://www.linkedin.com/in/veronicakoval), [**GitHub**](https://github.com/VerKoval/)
+
 
 
 [contributors-shield]: https://img.shields.io/github/contributors/VerKoval/AirQualityModel.svg?style=for-the-badge
